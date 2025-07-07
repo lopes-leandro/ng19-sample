@@ -1,13 +1,19 @@
 {
   "name": "ng19-sample",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "code:check": "npm run lint && npm run format:check",
+    "code:fix": "npm run lint:fix && npm run format"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.html", "eslint.config.js", "prettier.config.js"],
+  "exclude": ["node_modules", "dist", "coverage", ".angular", "**/*.spec.ts", "**/*.test.ts"]
+}
