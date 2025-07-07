@@ -7,7 +7,13 @@ module.exports = tseslint.config(
   {
     ignores: [
       "node_modules/**",
-      "dist/**"
+      "dist/**",
+      "*-lock.json",
+      "tsconfig.app.json",
+      "tsconfig.json",
+      "tsconfig.spec.json",
+      ".editorconfig",
+      "public/**"
     ]
   },
   {
@@ -24,7 +30,7 @@ module.exports = tseslint.config(
         "error",
         {
           type: "attribute",
-          prefix: "app",
+          prefix: ["app", "ati", "dir", "cr"],
           style: "camelCase",
         },
       ],
@@ -41,7 +47,29 @@ module.exports = tseslint.config(
         {
           suffixes: ['Component', 'Page']
         }
-      ]
+      ],
+      "@angular-eslint/directive-class-suffix": [
+        "error",
+        {
+          suffixes: ['Directive']
+        }
+      ],
+      "@angular-eslint/no-forward-ref": "error",
+      "@angular-eslint/prefer-inject": "error",
+      "@angular-eslint/prefer-standalone": "error",
+      "@angular-eslint/prefer-output-emitter-ref": "error",
+      "@angular-eslint/prefer-output-readonly": "error",
+      "@angular-eslint/use-lifecycle-interface": "error",
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/no-empty-function": "error",
+      "@typescript-eslint/no-this-alias": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-unused-expressions": [
+        "error",
+        {
+          "allowShortCircuit": true
+        }
+      ],
     },
   },
   {

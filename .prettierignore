@@ -1,0 +1,18 @@
+# Build
+dist/
+.angular/
+
+# Cobertura de testes
+coverage/
+
+# IDE
+.vscode/
+
+# Arquivos gerados
+**/*.d.ts
+
+# Package-lock
+package-lock.json
+
+# Specific files
+src/index.html
