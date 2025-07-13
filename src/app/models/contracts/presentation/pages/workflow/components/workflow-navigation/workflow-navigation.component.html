@@ -1,0 +1,9 @@
+<div class="steps-container">
+    @for (step of currentWorkflow()?.steps; track step.id; let i = $index) {
+    <div class="step-item" [class.active]="currentStep() === i" [class.completed]="currentStep() > i"
+        [class.disabled]="currentStep() < i && step.validationRequired">
+        <div class="step-index">{{ i + 1 }}</div>
+        <div class="step-label">{{ step.label }}</div>
+    </div>
+    }
+</div>

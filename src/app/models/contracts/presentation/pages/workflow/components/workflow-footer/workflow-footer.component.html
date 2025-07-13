@@ -1,0 +1,13 @@
+<div class="footer-buttons">
+    @if (isFirstStep()) {
+    <button (click)="cancel()">Cancelar</button>
+    } @else {
+    <button (click)="previous()">Voltar</button>
+    }
+
+    @if (!isLastStep()) {
+    <button (click)="next()" [disabled]="!workflowService.formValid()">Avançar</button>
+    } @else {
+    <button (click)="complete()" [disabled]="!workflowService.formValid()">Concluir</button>
+    }
+</div>

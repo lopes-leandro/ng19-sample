@@ -1,0 +1,34 @@
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f5f5f5;
+}
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.step-index {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  background: #e0e0e0;
+  color: #666;
+}
+.step-item.active .step-index {
+  background: #2196f3;
+  color: white;
+}
+.step-item.completed .step-index {
+  background: #4caf50;
+  color: white;
+}
+.step-item.disabled .step-index {
+  opacity: 0.5;
+}

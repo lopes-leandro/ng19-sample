@@ -1,0 +1,71 @@
+<!-- contract-list.component.html -->
+<div class="container">
+    <header class="header">
+        <h1 class="title">Lista de Contratos</h1>
+        <button class="btn btn-primary" (click)="startNewContract()">
+            <span class="btn-icon">+</span> Novo Contrato
+        </button>
+    </header>
+
+    <!-- Estado de carregamento -->
+    @if (state.loading()) {
+    <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Carregando contratos...</p>
+    </div>
+    }
+
+    <!-- Estado de erro -->
+    @if (state.error() && !state.loading()) {
+    <div class="error-state">
+        <div class="error-icon">!</div>
+        <p class="error-message">{{ state.error() }}</p>
+        <button class="btn" (click)="state.loadContracts()">Tentar Novamente</button>
+    </div>
+    }
+
+    <!-- Estado vazio -->
+    @if (!state.loading() && !state.error() && state.contracts().length === 0) {
+    <div class="empty-state">
+        <div class="empty-icon">📄</div>
+        <h3>Nenhum contrato encontrado</h3>
+        <p>Clique no botão acima para criar um novo contrato</p>
+    </div>
+    }
+
+    <!-- Lista de contratos -->
+    @if (!state.loading() && !state.error() && state.contracts().length > 0) {
+    <div class="contracts-grid">
+        @for (contract of state.contracts(); track contract.id) {
+        <div class="contract-card">
+            <div class="contract-header">
+                <span class="contract-id">{{ contract.id }}</span>
+                <span class="contract-status">Ativo</span>
+            </div>
+
+            <div class="contract-client">{{ contract.clientName }}</div>
+
+            <div class="contract-dates">
+                <div class="date-item">
+                    <span class="date-label">Início:</span>
+                    <span class="date-value">{{ formatDate(contract.startDate) }}</span>
+                </div>
+                <div class="date-item">
+                    <span class="date-label">Fim:</span>
+                    <span class="date-value">{{ formatDate(contract.endDate) }}</span>
+                </div>
+            </div>
+
+            <div class="contract-actions">
+                <button class="action-btn" (click)="viewContractDetails(contract.id)">
+                    <span class="action-icon">👁️</span> Detalhes
+                </button>
+                <button class="action-btn" (click)="addItemToContract(contract.id)">
+                    <span class="action-icon">+</span> Adicionar Item
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>

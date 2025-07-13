@@ -1,0 +1,21 @@
+.wizard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+.additional-content {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+.dynamic-form-container {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
