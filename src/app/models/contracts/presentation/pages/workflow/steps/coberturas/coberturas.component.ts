@@ -15,7 +15,7 @@ export class CoberturasComponent implements OnInit {
 
   protected form = this.fb.group({
     policyType: ['individual', Validators.required],
-    proposalNumber: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
+    proposalNumber: ['', [Validators.required]],
   });
 
   ngOnInit() {

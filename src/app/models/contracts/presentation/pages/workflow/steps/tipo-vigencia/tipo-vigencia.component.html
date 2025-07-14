@@ -11,12 +11,18 @@
 
     <div class="form-group">
         <label>Número da Proposta:</label>
-        <input type="text" formControlName="proposalNumber">
-        @if (form.get('proposalNumber')?.invalid && 
-             form.get('proposalNumber')?.touched) {
-          <div class="error-message">
-            Número de proposta inválido (9 dígitos)
-          </div>
+        <input type="text" formControlName="proposalNumber"
+            [class.invalid]="form.get('proposalNumber')?.invalid && form.get('proposalNumber')?.touched">
+        @if (form.get('proposalNumber')?.invalid &&
+        form.get('proposalNumber')?.touched) {
+        <div class="error-message">
+            @if (form.get('proposalNumber')?.errors?.['required']) {
+            Campo obrigatório
+            }
+            @if (form.get('proposalNumber')?.errors?.['pattern']) {
+            Formato inválido (9 dígitos)
+            }
+        </div>
         }
     </div>
 </app-dynamic-form>

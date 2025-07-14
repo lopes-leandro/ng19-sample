@@ -15,6 +15,10 @@ input {
   border-radius: 4px;
   font-size: 16px;
 }
+input.invalid {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
 .error-message {
   color: #e74c3c;
   font-size: 0.85rem;
